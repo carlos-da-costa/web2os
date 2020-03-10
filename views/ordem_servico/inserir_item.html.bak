@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+<h1>Inserir Produto</h1>
+{{=form}}
+
+<script>
+    $("#ordem_servico_item_produto").on("change", function(){
+        var produto = $(this).val();
+        var uri = "{{=URL(c='produto', f='api')}}/" + produto;
+        $.getJSON(uri, function (data) {
+            console.log(data[0].valor_unitario)
+        })
+    });
+</script>

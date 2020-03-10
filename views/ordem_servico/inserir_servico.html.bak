@@ -1,0 +1,16 @@
+{{extend 'layout.html'}}
+
+<h1>Inserir Serviço</h1>
+
+{{=form}}
+
+
+<script>
+    $("#ordem_servico_servico_tarefa").on("change", function(){
+        var servico = $(this).val();
+        var uri = "{{=URL(c='servico', f='api')}}/" + servico;
+        $.getJSON(uri, function (data) {
+            $("#ordem_servico_tarefa_valor_unitario").val(data[0].valor_unitario)
+        })
+    });
+</script>
